@@ -1,0 +1,334 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #dbeafe;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header (Compact but Clear) */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3b82f6;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex-direction: column;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+header .logo {
+  max-width: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+
+h1 {
+  color: #fbbf24;
+  font-size: 1.5em;
+  margin-left: 10px;
+}
+
+/* Sections */
+.about, .carousel, .reviews, .contact {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: #3b82f6;
+  font-size: 1.8em;
+}
+
+p {
+  font-size: large;
+  color: #555;
+}
+
+/* Clickable Workshop Button */
+.dropdown-btn {
+  background-color: #ff9800;
+  color: white;
+  font-size: 1.4em;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.dropdown-btn:hover {
+  background: #e68900;
+  transform: scale(1.05);
+}
+
+/* Dropdown Content */
+/* Dropdown Animation Fix */
+.dropdown-content {
+  display: block; /* Keep block structure */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* When active, expand */
+.dropdown-content.active {
+  max-height: 800px; /* Expands to full height */
+  padding: 15px;
+}
+
+/* Legal Disclaimer (ACTUALLY FIXED) */
+.legal-disclaimer {
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.legal-disclaimer button {
+  background: #d32f2f;
+  color: white;
+  padding: 12px;
+  font-size: 1.2em;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  width: 90%;
+  max-width: 500px;
+}
+
+.legal-disclaimer button:hover {
+  background: #b71c1c;
+}
+
+.legal-disclaimer .dropdown-content {
+  background: #fff;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.3s ease-in-out;
+}
+
+
+.legal-disclaimer .dropdown-content.active {
+  max-height: 500px; /* Expands */
+  padding: 15px;
+}
+
+
+
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .instructor-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dropdown-btn, .legal-disclaimer button {
+    width: 100%;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.3em;
+    margin: 0;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Instructor Flip Card Effect */
+.instructor-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.instructor-card {
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+}
+
+.instructor-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.instructor-card:hover .instructor-card-inner {
+  transform: rotateY(180deg);
+}
+
+.instructor-card-front, .instructor-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.instructor-card-front {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.instructor-card-front img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.instructor-card-back {
+  background-color: #3b82f6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
+
+
+.instructor-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+/* Ensure list-style is removed only from UL elements */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Preserve normal styling for h1 */
+h1 {
+    list-style-type: initial;
+}
+
+/* Styling for the Booking Calendar */
+.booking {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 500px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.booking h2 {
+  color: #3b82f6;
+  font-size: 1.6em;
+  margin-bottom: 15px;
+}
+
+#calendar {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2em;
+  border: 2px solid #3b82f6;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+#calendar:hover, #calendar:focus {
+  border-color: #2563eb;
+  box-shadow: 0px 0px 10px rgba(59, 130, 246, 0.5);
+  outline: none;
+}
+
+#book-now {
+  background-color: #ff9800;
+  color: white;
+  font-size: 1.3em;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+#book-now:hover {
+  background: #e68900;
+  transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .booking {
+    width: 90%;
+  }
+}
